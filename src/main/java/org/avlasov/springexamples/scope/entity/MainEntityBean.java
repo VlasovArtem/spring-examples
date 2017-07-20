@@ -5,11 +5,11 @@ package org.avlasov.springexamples.scope.entity;
  */
 public class MainEntityBean {
 
-    private static final int count = 1;
+    private static int count = 0;
     private String name;
 
     public MainEntityBean() {
-        name = String.format("%s # %d", this.getClass().getName(), count);
+        name = String.format("%s # %d", this.getClass().getName(), count++);
     }
 
     public String getName() {
