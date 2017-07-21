@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.avlasov.springexamples.scope.prototype.config.PrototypeAppConfig;
 import org.avlasov.springexamples.scope.prototype.entity.BeanPrototypeEntity;
-import org.avlasov.springexamples.utils.BeanUtils;
+import org.avlasov.springexamples.scope.utils.BeanUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

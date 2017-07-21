@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.avlasov.springexamples.scope.entity.ComponentEntityBean;
 import org.avlasov.springexamples.scope.singleton.config.SingletonAppConfig;
 import org.avlasov.springexamples.scope.singleton.entity.EntityBean;
-import org.avlasov.springexamples.utils.BeanUtils;
+import org.avlasov.springexamples.scope.utils.BeanUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

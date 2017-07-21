@@ -1,4 +1,4 @@
-package org.avlasov.springexamples.utils;
+package org.avlasov.springexamples.scope.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
