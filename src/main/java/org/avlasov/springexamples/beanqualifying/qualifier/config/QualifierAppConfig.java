@@ -5,7 +5,6 @@ import org.avlasov.springexamples.beanqualifying.entity.QualifiedEntity;
 import org.avlasov.springexamples.beanqualifying.entity.QualifierEntity;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -14,7 +13,6 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(BeanQualifyingConfig.class)
-@ComponentScan("org.avlasov.springexamples.beanqualifying.qualifier")
 public class QualifierAppConfig {
 
     @Bean
