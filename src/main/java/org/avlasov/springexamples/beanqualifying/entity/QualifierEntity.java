@@ -1,11 +1,9 @@
 package org.avlasov.springexamples.beanqualifying.entity;
 
-import org.avlasov.springexamples.entity.MainEntityBean;
-
 /**
  * Created by artemvlasov on 20/07/2017.
  */
-public class QualifierEntity extends MainEntityBean {
+public class QualifierEntity {
 
     private QualifiedEntity qualifiedEntity;
 
