@@ -2,6 +2,7 @@ package org.avlasov.springexamples.scope.prototype.entity;
 
 import org.avlasov.springexamples.scope.entity.ComponentEntityBean;
 import org.avlasov.springexamples.scope.entity.MainEntityBean;
+import org.avlasov.springexamples.scope.prototype.entity.nested.NestedPrototype;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -18,10 +19,20 @@ import javax.annotation.PreDestroy;
 public class BeanPrototypeEntity extends MainEntityBean {
 
     private final ComponentEntityBean componentEntityBean;
+    private final NestedPrototype nestedPrototype;
 
     @Autowired
-    public BeanPrototypeEntity(ComponentEntityBean componentEntityBean) {
+    public BeanPrototypeEntity(ComponentEntityBean componentEntityBean, NestedPrototype nestedPrototype) {
         this.componentEntityBean = componentEntityBean;
+        this.nestedPrototype = nestedPrototype;
+    }
+
+    public ComponentEntityBean getComponentEntityBean() {
+        return componentEntityBean;
+    }
+
+    public NestedPrototype getNestedPrototype() {
+        return nestedPrototype;
     }
 
     @PostConstruct
