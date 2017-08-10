@@ -16,7 +16,7 @@ import org.springframework.context.annotation.*;
  */
 @Configuration
 @ComponentScan("org.avlasov.springexamples.conditionbean")
-@PropertySource("classpath:org.avlasov.springexamples.conditionbean")
+@PropertySource("classpath:/org/avlasov/springexamples/conditionbean/condition.properties")
 public class ConditionBeanConfig {
 
     @Bean
