@@ -1,6 +1,6 @@
 package org.avlasov.springexamples.scope.singleton.entity;
 
-import org.avlasov.springexamples.scope.prototype.entity.nested.NestedPrototype;
+import org.avlasov.springexamples.scope.singleton.entity.nested.NestedPrototype;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

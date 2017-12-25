@@ -1,7 +1,10 @@
 package org.avlasov.springexamples.repository.nosql.repository;
 
+import org.avlasov.springexamples.repository.nosql.config.EmbeddedMongoDatabaseConfig;
 import org.avlasov.springexamples.repository.nosql.config.NoSQLRepositoryConfig;
 import org.avlasov.springexamples.repository.nosql.entity.NoSQLEntityBean;
+import org.hamcrest.collection.IsCollectionWithSize;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +14,16 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertNotNull;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created By artemvlasov on 11/08/2017
  **/
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = NoSQLRepositoryConfig.class)
+@ContextConfiguration(classes = {NoSQLRepositoryConfig.class, EmbeddedMongoDatabaseConfig.class})
 @DataMongoTest
 public class NoSQLRepositoryTest {
 
@@ -26,7 +32,7 @@ public class NoSQLRepositoryTest {
 
     @Before
     public void setUp() throws Exception {
-        noSQLRepository.save(new NoSQLEntityBean(1, "Test"));
+        noSQLRepository.save(new NoSQLEntityBean(1, "test"));
     }
 
     @After
@@ -35,33 +41,47 @@ public class NoSQLRepositoryTest {
     }
 
     @Test
-    public void findByName() throws Exception {
-        NoSQLEntityBean test = noSQLRepository.findByName("Test");
-        assertNotNull(test);
+    public void findByName() {
+        NoSQLEntityBean test = noSQLRepository.findByName("test");
+        assertEquals(test.getId(), 1);
     }
 
     @Test
-    public void getByName() throws Exception {
+    public void getByName() {
+        NoSQLEntityBean test = noSQLRepository.getByName("test");
+        assertEquals(test.getId(), 1);
     }
 
     @Test
-    public void readByName() throws Exception {
+    public void readByName() {
+        NoSQLEntityBean test = noSQLRepository.readByName("test");
+        assertEquals(test.getId(), 1);
     }
 
     @Test
-    public void queryByName() throws Exception {
+    public void queryByName() {
+        NoSQLEntityBean test = noSQLRepository.queryByName("test");
+        assertEquals(test.getId(), 1);
     }
 
     @Test
-    public void findSomethingUnusualByName() throws Exception {
+    public void findSomethingUnusualByName() {
+        NoSQLEntityBean test = noSQLRepository.findSomethingUnusualByName("test");
+        assertEquals(test.getId(), 1);
     }
 
     @Test
-    public void findByNameIsLike() throws Exception {
+    public void findByNameIsLike() {
+        List<NoSQLEntityBean> byNameIsLike = noSQLRepository.findByNameIsLike("%sst");
+        assertThat(byNameIsLike, IsEmptyCollection.empty());
     }
 
     @Test
-    public void findByIdBetween() throws Exception {
+    public void findByIdBetween() {
+        noSQLRepository.save(new NoSQLEntityBean(2, "hello"));
+        noSQLRepository.save(new NoSQLEntityBean(3, "bye"));
+        List<NoSQLEntityBean> byIdBetween = noSQLRepository.findByIdBetween(1, 3);
+        assertThat(byIdBetween, IsCollectionWithSize.hasSize(1));
+        assertEquals(byIdBetween.get(0).getName(), "hello");
     }
-
 }

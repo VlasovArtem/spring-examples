@@ -33,4 +33,5 @@ public class SingletonWithPrototypeBeanTest {
         SingletonWithPrototypeBean bean1 = applicationContext.getBean(SingletonWithPrototypeBean.class);
         assertEquals(bean.getNestedPrototype(), bean1.getNestedPrototype());
     }
+
 }

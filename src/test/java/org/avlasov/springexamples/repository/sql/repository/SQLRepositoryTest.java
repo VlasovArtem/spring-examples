@@ -17,8 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.avlasov.springexamples.repository.sql.repository.SQLRepositoryTest.SQLEntityBeanMatcher.newMatcher;
+import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.*;
 
 /**

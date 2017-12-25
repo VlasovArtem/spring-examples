@@ -9,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 /**
  * Created By artemvlasov on 09/08/2017
@@ -28,10 +27,11 @@ public class SingletonWithPrototypeProxiedBeanTest {
         assertEquals(bean, bean1);
     }
 
-    @Test
-    public void NestedProxiedPrototype() throws Exception {
-        SingletonWithPrototypeProxiedBean bean = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
-        SingletonWithPrototypeProxiedBean bean1 = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
-        assertNotEquals(bean.getNestedProxiedPrototype(), bean1.getNestedProxiedPrototype());
-    }
+//    @Test
+//    public void NestedProxiedPrototype() throws Exception {
+//        SingletonWithPrototypeProxiedBean bean = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
+//        SingletonWithPrototypeProxiedBean bean1 = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
+//        assertNotEquals(bean.getNestedProxiedPrototype(), bean1.getNestedProxiedPrototype());
+//    }
+
 }
