@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * Created By artemvlasov on 09/08/2017
@@ -27,11 +28,14 @@ public class SingletonWithPrototypeProxiedBeanTest {
         assertEquals(bean, bean1);
     }
 
-//    @Test
-//    public void NestedProxiedPrototype() throws Exception {
-//        SingletonWithPrototypeProxiedBean bean = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
-//        SingletonWithPrototypeProxiedBean bean1 = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
-//        assertNotEquals(bean.getNestedProxiedPrototype(), bean1.getNestedProxiedPrototype());
-//    }
+    @Test
+    public void NestedProxiedPrototype() throws Exception {
+        SingletonWithPrototypeProxiedBean bean = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
+        SingletonWithPrototypeProxiedBean bean1 = applicationContext.getBean(SingletonWithPrototypeProxiedBean.class);
+//        nestedProxiedPrototype1.setTestName("test"); will not change value of the bean above - Spring will create new prototype every time
+        // Every call to the Proxied Prototype will create new item and manipulate with new object
+        assertNotEquals(bean.getNestedProxiedPrototype().toString(), bean1.getNestedProxiedPrototype().toString());
+        assertNotEquals(bean.getNestedProxiedPrototype().getTestName(), bean1.getNestedProxiedPrototype().getTestName());
+    }
 
 }

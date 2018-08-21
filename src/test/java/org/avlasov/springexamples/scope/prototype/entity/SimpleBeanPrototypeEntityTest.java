@@ -8,9 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created By artemvlasov on 04/08/2017
@@ -28,7 +26,7 @@ public class SimpleBeanPrototypeEntityTest {
 
     @Test
     public void prototypeBeanLinksNotEquals() throws Exception {
-        assertFalse(first == second);
+        assertNotSame(first, second);
     }
 
     @Test
