@@ -1,6 +1,10 @@
 package org.avlasov.springexamples.controller.controller;
 
 import org.avlasov.springexamples.controller.entity.Data;
+import org.avlasov.springexamples.controller.exception.ControllerAdviceException;
+import org.avlasov.springexamples.controller.exception.ControllerException;
+import org.avlasov.springexamples.controller.exception.ControllerExceptionHandlerResolverException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,11 +21,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
  **/
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class FirstTestController {
 
     private List<String> testData;
 
-    public TestController() {
+    public FirstTestController() {
         testData = Arrays.asList("hello", "test", "data", "error", "no", "yes");
     }
 
@@ -56,6 +60,26 @@ public class TestController {
     @RequestMapping(value = "/add/data", method = POST)
     public ResponseEntity<String> addData(@RequestBody Data data) {
         return ResponseEntity.ok(String.format("Data with the first data text '%s' and second data text '%s' have been added", data.getFirstText(), data.getSecondText()));
+    }
+
+    @RequestMapping(value = "/exception/controllerAdvice", method = GET)
+    public void testControllerAdviceExceptionHandler() throws ControllerAdviceException {
+        throw new ControllerAdviceException("Controller Advice Exception handler test");
+    }
+
+    @RequestMapping(value = "/exception/controllerException", method = GET)
+    public void testControllerExceptionHandler() throws ControllerException {
+        throw new ControllerException("Controller Exception handler test");
+    }
+
+    @RequestMapping(value = "/exception/controllerExceptionHandlerResolver", method = GET)
+    public void testExceptionHandlerResolver() throws ControllerExceptionHandlerResolverException {
+        throw new ControllerExceptionHandlerResolverException("Controller Exception handler resolver test");
+    }
+
+    @ExceptionHandler(value = ControllerException.class)
+    public ResponseEntity<String> controllerExceptionHandler(Exception ex) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(ex.getMessage());
     }
 
     public List<String> getTestData() {

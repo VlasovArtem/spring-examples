@@ -12,12 +12,11 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -27,15 +26,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest
 @ContextConfiguration(classes = ControllerConfig.class)
-public class TestControllerTest {
+public class FirstTestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
     private List<String> testControllerData;
     private ObjectMapper objectMapper;
 
-    public TestControllerTest() {
-        testControllerData = new TestController().getTestData();
+    public FirstTestControllerTest() {
+        testControllerData = new FirstTestController().getTestData();
         objectMapper = Jackson2ObjectMapperBuilder
                 .json()
                 .autoDetectFields(true)
@@ -142,4 +141,24 @@ public class TestControllerTest {
                 .andExpect(status().isNotAcceptable());
     }
 
+    @Test
+    public void testControllerAdviceExceptionHandler() throws Exception {
+        mockMvc.perform(get("/test/exception/controllerAdvice"))
+                .andExpect(status().isNotAcceptable())
+                .andExpect(content().string("Controller Advice Exception handler test"));
+    }
+
+    @Test
+    public void testControllerExceptionHandler() throws Exception {
+        mockMvc.perform(get("/test/exception/controllerException"))
+                .andExpect(status().isBadGateway())
+                .andExpect(content().string("Controller Exception handler test"));
+    }
+
+    @Test
+    public void testExceptionHandlerResolver() throws Exception {
+        mockMvc.perform(get("/test/exception/controllerExceptionHandlerResolver"))
+                .andExpect(status().isTooManyRequests())
+                .andExpect(MockMvcResultMatchers.view().name("Controller Exception handler resolver test"));
+    }
 }
