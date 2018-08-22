@@ -1,16 +1,96 @@
 # Spring Examples
 Project contains all test for spring framework (Lifecycle, Scope, Properties, SpEL, etc.)
-All content packages contains App.java with main class, that can be run, to see required information in console log.
+All content packages contains App.java with main class and test classes, that can be run, to see required information in console log.
 ## Project Content
-### Lifecycle
-#### Bean Life Cycle
-will show full bean life cycles, all steps steps that passed bean before creating till destroy
+### Bean Qualifying
+If system contains multiple bean with the same class, you need to qualify which bean you need to use some of the examples how to qualify bean:
+* Annotation *@Qualifier("beanName")*
+* Annotation *@Primary* for the class, that should be primary. In this case if system have only one @Primary for one class type, then *@Qualifier* is not required.
+ 
+Also package contains examples, how to use multiple qualifiers.
 
-Run class - **org.avlasov.springexamples.lifecycle.LifecycleApp**
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/beanqualifying)
+
+### Condition Bean
+Conditional bean all you to say spring what beans need to be registered by the Spring. Here is few examples:
+* With custom annotation
+* On verification if bean with name if registered in spring
+* Based on environment properties
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/conditionbean)
+
+### Controller
+Spring Web MVC controllers examples with different examples how to handle exceptions from requests. Possible solutions to handle exceptions in Spring MVC
+* Method annotated with *@ExceptionHandler* under the method inside each controller. In this case @ExceptionHandler will work only for class in which he is declared
+* Class annotated with *@ControllerAdvice* and methods with annotation *@ExceptionHandler*
+* Class, that extends *HandlerExceptionResolver* (please, note this class should be declared as bean)
+
+Developer notes: If you create method with annotation *@ExceptionHandler*, that catch exception with base class *Exception.class* all other methods with more specific exception classes will be ignored.
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/controller)
+
+### Bean Lifecycle
+
+Package contains examples of bean lifecycle from their creation till destroy. All information about the steps of bean lifecycle is printing into the console. All beans contains *@PostConstruct* and *@PreDestroy* methods, implements next interfaces ([MainClass](https://github.com/VlasovArtem/spring-examples/blob/master/src/main/java/org/avlasov/springexamples/lifecycle/entity/AbstractLifecycleEntity.java)):
+* BeanNameAware
+* InitializingBean 
+* DisposableBean
+* BeanFactoryAware
+* ApplicationContextAware
+
+The example has one registered *BeanPostProcessor*
+
+Package contains next examples of bean lifecycle:
+* Original Spring Bean (without autowiring)
+* Spring Bean, that creates inside config class with help of *@Bean* with declared initMethod and destroyMethod.
+* Spring Bean with autowiring
+* Spring Bean with circle autowiring
+    * With annotation @Lazy (you cannot use autowired inside constructor). Spring creates Proxy object, that will be available only after Spring Application Context will be ready.
+    * With help of method with annotation *@PostConstruct*
+    * With help of setter method    
+
+For more information, please, refer to method *org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(java.lang.String, java.lang.Object, org.springframework.beans.factory.support.RootBeanDefinition)*
 
 Activate DEBUG in log4j2.xml to see more information
-### Scope
-#### Singleton
-Singleton is default scope for all beans created in Spring. If bean is not marked with annotation *@Scope* or not set in annotation *@Bean*, then Singleton will be created.
 
-Run class - **org.avlasov.springexamples.scope.singleton.SingletonApp**
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/lifecycle)
+
+### Repository 
+
+Package contains examples how to create SQL and NoSQL configuration, repository interfaces with naming methods, custom repository that works with plain database manages (EntityManager for SQL and MongoTemplate for MongoDB)
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/repository)
+
+### Bean Scope 
+
+Example of the next bean scopes - *Singleton* (spring default), *Prototype*. *Request*, *Session* and *Global Session* scopes are not represent.
+
+Singleton beans contains next examples:
+* Simple Singleton
+* Singleton with autowired prototype. In this case prototype will always the same. 
+* Singleton with autowired proxied prototype. Spring will create proxy over prototype and every time you call any method or field from proxied prototype Spring will create new instance of this class.
+
+Prototype beans contains next example:
+* Simple Prototype
+* Prototype with autowired prototype. Autowired prototype will be different each time you get new instance of a main prototype.
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/scope)
+
+### SpEL (Spring Expression Language)
+
+Example of using @Value annotation with simple mapping or with default value.
+
+# Spring 5 Examples
+Spring 5 examples
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5)
+## Project content 
+### Spring 5 NoSQL with Reactive (not completed)
+
+Example of how to use Mono and Flux in NoSQL repository
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5/repository/nosql)
+
+# TODO
+
+* Spring Security
+* Spring AOP
