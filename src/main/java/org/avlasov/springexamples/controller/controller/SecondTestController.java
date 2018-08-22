@@ -21,6 +21,11 @@ public class SecondTestController {
         throw new ControllerException("Controller Exception handler test from second controller");
     }
 
+    @RequestMapping(value = "/interceptor", method = GET)
+    public ResponseEntity<String> testInterceptor() {
+        return ResponseEntity.ok("Interceptor test");
+    }
+
     @ExceptionHandler(value = ControllerException.class)
     public ResponseEntity<String> controllerExceptionHandler(Exception ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());

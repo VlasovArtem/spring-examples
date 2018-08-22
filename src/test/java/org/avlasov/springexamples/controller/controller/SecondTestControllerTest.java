@@ -31,4 +31,10 @@ public class SecondTestControllerTest {
                 .andExpect(content().string("Controller Exception handler test from second controller"));
     }
 
+    @Test
+    public void testInterceptor() throws Exception {
+        mockMvc.perform(get("/test/second/interceptor"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Interceptor test"));
+    }
 }
