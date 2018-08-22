@@ -10,6 +10,7 @@ All content packages contains App.java with main class and test classes, that ca
 * [Repository](#repository)
 * [Bean Scope](#bean-scope)
 * [SpEL](#spel-spring-expression-language)
+* [Other](#other)
 * [Spring 5 Examples](#spring-5-examples)
 
 ### Bean Qualifying
@@ -102,6 +103,13 @@ Prototype beans contains next example:
 
 Example of using @Value annotation with simple mapping or with default value.
 
+### Other
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/other)
+
+#### Required
+Example of how to user *@Required*. Annotation can be use only with help of @Bean annotation. And said Spring, that inject value is required. Usually this annotation is use for setter methods. Will work only for XML configuration
+
 ### Spring 5 Examples
 
 Spring 5 examples
@@ -116,7 +124,7 @@ Spring 5 examples
 
 Example of how to use Mono and Flux in NoSQL repository
 
-g[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5/repository/nosql)
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5/repository/nosql)
 
 [To the top](#spring-5-examples)
 
