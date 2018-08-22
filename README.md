@@ -21,6 +21,8 @@ Also package contains examples, how to use multiple qualifiers.
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/beanqualifying)
 
+[To the top](#project-content)
+
 ### Condition Bean
 Conditional bean all you to say spring what beans need to be registered by the Spring. Here is few examples:
 * With custom annotation
@@ -28,6 +30,8 @@ Conditional bean all you to say spring what beans need to be registered by the S
 * Based on environment properties
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/conditionbean)
+
+[To the top](#project-content)
 
 ### Controller
 Spring Web MVC controllers examples with different examples how to handle exceptions from requests. Possible solutions to handle exceptions in Spring MVC
@@ -38,6 +42,8 @@ Spring Web MVC controllers examples with different examples how to handle except
 Developer notes: If you create method with annotation *@ExceptionHandler*, that catch exception with base class *Exception.class* all other methods with more specific exception classes will be ignored.
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/controller)
+
+[To the top](#project-content)
 
 ### Bean Lifecycle
 
@@ -65,11 +71,15 @@ Activate DEBUG in log4j2.xml to see more information
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/lifecycle)
 
+[To the top](#project-content)
+
 ### Repository 
 
 Package contains examples how to create SQL and NoSQL configuration, repository interfaces with naming methods, custom repository that works with plain database manages (EntityManager for SQL and MongoTemplate for MongoDB)
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/repository)
+
+[To the top](#project-content)
 
 ### Bean Scope 
 
@@ -86,24 +96,29 @@ Prototype beans contains next example:
 
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/scope)
 
+[To the top](#project-content)
+
 ### SpEL (Spring Expression Language)
 
 Example of using @Value annotation with simple mapping or with default value.
 
-# Spring 5 Examples
+### Spring 5 Examples
+
 Spring 5 examples
+
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5)
-## Project content
 
 * [Spring 5 Repository with Reactive](#spring-5-nosql-with-reactive)
 
-### Spring 5 NoSQL with Reactive
+#### Spring 5 NoSQL with Reactive
 
 *NOT COMPLETED*
 
 Example of how to use Mono and Flux in NoSQL repository
 
-[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5/repository/nosql)
+g[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5/repository/nosql)
+
+[To the top](#spring-5-examples)
 
 # TODO
 
