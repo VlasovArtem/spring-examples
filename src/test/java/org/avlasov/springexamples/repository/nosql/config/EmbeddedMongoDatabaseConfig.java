@@ -11,8 +11,8 @@ import de.flapdoodle.embed.mongo.config.Net;
 import de.flapdoodle.embed.mongo.config.RuntimeConfigBuilder;
 import de.flapdoodle.embed.mongo.distribution.Version;
 import de.flapdoodle.embed.process.config.IRuntimeConfig;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.io.IOException;
 /**
  * Created By artemvlasov on 25/12/2017
  **/
-@Configuration
+@TestConfiguration
 public class EmbeddedMongoDatabaseConfig {
 
     private final String LOCALHOST = "127.0.0.1";

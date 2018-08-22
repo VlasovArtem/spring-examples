@@ -1,6 +1,7 @@
 package org.avlasov.springexamples.repository.nosql.repository;
 
 import org.avlasov.springexamples.repository.nosql.entity.NoSQLEntityBean;
+import org.avlasov.springexamples.repository.nosql.repository.custom.NoSQLCustomRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created By artemvlasov on 11/08/2017
  **/
-public interface NoSQLRepository extends MongoRepository<NoSQLEntityBean, Long> {
+public interface NoSQLRepository extends MongoRepository<NoSQLEntityBean, Long>, NoSQLCustomRepository {
 
     NoSQLEntityBean findByName(String name);
     NoSQLEntityBean getByName(String name);

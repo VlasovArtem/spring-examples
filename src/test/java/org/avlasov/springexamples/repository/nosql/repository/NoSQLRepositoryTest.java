@@ -84,4 +84,13 @@ public class NoSQLRepositoryTest {
         assertThat(byIdBetween, IsCollectionWithSize.hasSize(1));
         assertEquals(byIdBetween.get(0).getName(), "hello");
     }
+
+    @Test
+    public void countByName() {
+        noSQLRepository.save(new NoSQLEntityBean(2, "hello"));
+        noSQLRepository.save(new NoSQLEntityBean(3, "bye"));
+        noSQLRepository.save(new NoSQLEntityBean(4, "test"));
+        assertEquals(2, noSQLRepository.countByName("test"));
+        assertEquals(1, noSQLRepository.countByName("hello"));
+    }
 }
