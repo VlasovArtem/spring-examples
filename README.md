@@ -1,7 +1,17 @@
 # Spring Examples
 Project contains all test for spring framework (Lifecycle, Scope, Properties, SpEL, etc.)
 All content packages contains App.java with main class and test classes, that can be run, to see required information in console log.
+
 ## Project Content
+* [Bean Qualifying](#bean-qualifying)
+* [Condition Bean](#condition-bean)
+* [Controller](#controller)
+* [Bean Lifecycle](#bean-lifecycle)
+* [Repository](#repository)
+* [Bean Scope](#bean-scope)
+* [SpEL](#spel-spring-expression-language)
+* [Spring 5 Examples](#spring-5-examples)
+
 ### Bean Qualifying
 If system contains multiple bean with the same class, you need to qualify which bean you need to use some of the examples how to qualify bean:
 * Annotation *@Qualifier("beanName")*
@@ -83,8 +93,13 @@ Example of using @Value annotation with simple mapping or with default value.
 # Spring 5 Examples
 Spring 5 examples
 [Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/spring5)
-## Project content 
-### Spring 5 NoSQL with Reactive (not completed)
+## Project content
+
+* [Spring 5 Repository with Reactive](#spring-5-nosql-with-reactive)
+
+### Spring 5 NoSQL with Reactive
+
+*NOT COMPLETED*
 
 Example of how to use Mono and Flux in NoSQL repository
 
