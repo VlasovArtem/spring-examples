@@ -1,6 +1,6 @@
 package org.avlasov.springexamples.lifecycle;
 
-import org.avlasov.springexamples.MainLoggerTestCase;
+import org.avlasov.springexamples.LoggerTestCase;
 import org.avlasov.springexamples.lifecycle.entity.AbstractLifecycleEntity;
 import org.avlasov.springexamples.lifecycle.utils.MessageUtils;
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
  * Created By artemvlasov on 21/08/2018
  **/
 @RunWith(SpringRunner.class)
-public abstract class MainLifeCycleTestCase extends MainLoggerTestCase {
+public abstract class MainLifeCycleTestCase extends LoggerTestCase {
 
     @Autowired
     private ApplicationContext applicationContext;

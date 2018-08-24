@@ -1,6 +1,6 @@
 package org.avlasov.springexamples.value.properties.entity;
 
-import org.avlasov.springexamples.MainLoggerTestCase;
+import org.avlasov.springexamples.LoggerTestCase;
 import org.avlasov.springexamples.value.properties.config.PropertiesConfig;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  **/
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = PropertiesConfig.class)
-public class ValuePropertyEntityTest extends MainLoggerTestCase {
+public class ValuePropertyEntityTest extends LoggerTestCase {
 
     @Autowired
     private ValuePropertyEntity valuePropertyEntity;
