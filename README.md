@@ -1,6 +1,5 @@
 # Spring Examples
-Project contains all test for spring framework (Lifecycle, Scope, Properties, SpEL, etc.)
-All content packages contains App.java with main class and test classes, that can be run, to see required information in console log.
+Examples of usage Spring Framework (Lifecycle, Scope, Properties, SpEL, etc.). The project contains examples and tests.
 
 ## Project Content
 * [Bean Qualifying](#bean-qualifying)
@@ -10,13 +9,14 @@ All content packages contains App.java with main class and test classes, that ca
 * [Repository](#repository)
 * [Bean Scope](#bean-scope)
 * [SpEL](#spel-spring-expression-language)
+* [Spring AOP](#spring-aop)
 * [Other](#other)
 * [Spring 5 Examples](#spring-5-examples)
 
 ### Bean Qualifying
 If system contains multiple bean with the same class, you need to qualify which bean you need to use some of the examples how to qualify bean:
 * Annotation *@Qualifier("beanName")*
-* Annotation *@Primary* for the class, that should be primary. In this case if system have only one @Primary for one class type, then *@Qualifier* is not required.
+* Annotation *@Primary* for the class, that should be primary. In this case if system has only one @Primary for single class type, then *@Qualifier* is not required.
  
 Also package contains examples, how to use multiple qualifiers.
 
@@ -102,6 +102,18 @@ Prototype beans contains next example:
 ### SpEL (Spring Expression Language)
 
 Example of using @Value annotation with simple mapping or with default value.
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/value)
+
+[To the top](#project-content)
+
+### Spring AOP
+
+Examples of how to use Spring AOP to cover different cases, for example around method logging, modification of a data etc.
+
+[Package](https://github.com/VlasovArtem/spring-examples/tree/master/src/main/java/org/avlasov/springexamples/aop)
+
+[To the top](#project-content) 
 
 ### Other
 
