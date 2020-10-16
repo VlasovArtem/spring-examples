@@ -15,7 +15,7 @@ import java.util.function.Function;
 /**
  * Created By artemvlasov on 21/08/2018
  **/
-public abstract class AbstractLifecycleEntity implements BeanNameAware, InitializingBean, DisposableBean, BeanFactoryAware, ApplicationContextAware {
+public abstract class AbstractLifecycleEntity implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     private String beanNameData;
     private List<String> lifeCycle;

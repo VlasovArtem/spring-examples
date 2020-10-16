@@ -3,8 +3,8 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.9
-targetCompatibility = 1.9
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 buildscript {
     repositories {
@@ -54,6 +54,8 @@ dependencies {
     compile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '2.0.0'
     compile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '2.0.0', classifier: 'sources'
     compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.4.2', classifier: 'sources'
+    compile group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     testCompile group: 'org.springframework', name: 'spring-test'
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
